@@ -1,0 +1,22 @@
+<h3 class="form-control text-center ">TO DO LIST</h3>
+<div class="row">
+    <div class="col-md-5">
+        <div class="alert alert-primary" role="alert">
+            <app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
+        </div>
+    </div>
+    <div class="col-md-7 text-center">
+        <div *ngIf="todos.length==0; else elseBlock">
+            <div class="alert alert-danger" role="alert">
+                No Todo to display
+            </div>
+        </div>
+        <ng-template #elseBlock>
+            <div *ngFor="let todo of todos">
+                <div class="alert alert-dark" role="alert">
+                    <app-todo-list [todo]="todo" (todoDelete)="deleteTodo($event)" (todoCheckbox)="todoTogol($event)" ></app-todo-list>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>

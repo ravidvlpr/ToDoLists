@@ -1,0 +1,11 @@
+<div class="my-3 text-center">
+    <h3 [ngClass]="{'strick': !todo.active}">{{todo.title}}</h3>
+    <p [ngClass]="{'strick': !todo.active}">{{todo.description}}</p>
+    <p>{{todo.createdate | date }}</p>
+    <div class="form-group my-3">
+        <input type="checkbox" class="form-check-input" id="check" (click)="onCheckboxclick(todo)" [checked]="!todo.active" >
+        <label class="form-check-label" for="exampleCheck1"> Mark as done</label>
+      </div>
+    <button class="btn btn-danger" (click)="onClick(todo)">Delete</button>
+</div>
+
